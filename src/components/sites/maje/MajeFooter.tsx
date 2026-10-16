@@ -58,22 +58,22 @@ const FooterCols: { title: string; links: FooterLink[] }[] = [
 const Socials: { label: string; href: string; path: string }[] = [
   {
     label: "Instagram",
-    href: "https://www.instagram.com/majeparis/",
+    href: "https://www.instagram.com/ghyselisa/",
     path: "M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.9s0 3.6-.1 4.9c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9C2.4 3.9 4 2.3 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2Zm0 3.6a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm0 10.2a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-10.4a1.4 1.4 0 1 0 0-2.9 1.4 1.4 0 0 0 0 2.9Z",
   },
   {
     label: "Facebook",
-    href: "https://www.facebook.com/maje.france",
+    href: "https://www.facebook.com/search/top?q=praguaz",
     path: "M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5h1.3V4.9c-.6-.1-1.4-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8V11H8v3h2.5v7h3Z",
   },
   {
     label: "TikTok",
-    href: "https://www.tiktok.com/@majeparis",
+    href: "https://www.tiktok.com/@ghyselisa",
     path: "M16.6 3c.4 2.1 1.8 3.5 4 3.9v3c-1.6 0-3-.5-4-1.3v6.1c0 3.4-2.4 5.8-5.6 5.8A5.3 5.3 0 0 1 5.5 15c0-3 2.3-5.2 5.4-5.2.3 0 .7 0 1 .1v3.1a2.5 2.5 0 0 0-1-.2 2.3 2.3 0 0 0-2.4 2.3 2.3 2.3 0 0 0 2.4 2.3c1.4 0 2.6-1.1 2.6-2.8V3h3.7Z",
   },
   {
     label: "Pinterest",
-    href: "https://www.pinterest.fr/majeofficiel/",
+    href: "https://www.pinterest.fr/search/pins/?q=praguaz",
     path: "M12 3a9 9 0 0 0-3.3 17.4c-.1-.8-.2-2 0-2.9l1.2-4.9s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.2 1 .5 1.9 1.6 1.9 1.9 0 3.3-2 3.3-4.9 0-2.5-1.8-4.3-4.4-4.3a4.6 4.6 0 0 0-4.8 4.6c0 .9.4 1.9.8 2.4.1.1.1.2.1.3l-.3 1.1c0 .2-.2.2-.4.1-1.2-.6-2-2.4-2-3.9 0-3.2 2.3-6.1 6.7-6.1 3.5 0 6.2 2.5 6.2 5.8 0 3.5-2.2 6.3-5.3 6.3-1 0-2-.5-2.3-1.2l-.6 2.4c-.2.9-.8 2-1.2 2.6A9 9 0 1 0 12 3Z",
   },
 ];
@@ -184,8 +184,7 @@ export function MajeFooter() {
         ))}
       </div>
       <p className="maje-legal">
-        Clone éducatif non affilié — marque et visuels © Maje / SMCP. Maquette réalisée à partir de
-        fr.maje.com, sans valeur contractuelle.
+        © PRAGUAZ — boutique bohème chic. Maquette de travail, sans valeur contractuelle.
       </p>
     </footer>
   );

@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Robe en maille avec pull amovible | Maje",
+  title: "Robe en maille avec pull amovible | Praguaz",
   description: "Robe en maille avec pull amovible — 445 € → 356 € (-20%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

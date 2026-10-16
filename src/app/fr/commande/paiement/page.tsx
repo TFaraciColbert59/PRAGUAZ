@@ -38,7 +38,7 @@ export default function PaiementPage() {
       return;
     }
     setError(null);
-    const orderNumber = `MJ-${Date.now().toString().slice(-8)}`;
+    const orderNumber = `PZ-${Date.now().toString().slice(-8)}`;
     try {
       window.localStorage.setItem(
         "maje-order",

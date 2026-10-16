@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Cardigan effet cape | Maje",
+  title: "Cardigan effet cape | Praguaz",
   description: "Cardigan effet cape — 345 € → 172,50 € (-50%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

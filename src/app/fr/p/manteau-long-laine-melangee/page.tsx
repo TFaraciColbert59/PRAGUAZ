@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Manteau long en laine mélangée | Maje",
+  title: "Manteau long en laine mélangée | Praguaz",
   description: "Manteau long en laine mélangée — 545 € → 272,50 € (-50%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

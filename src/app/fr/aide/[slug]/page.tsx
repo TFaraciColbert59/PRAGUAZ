@@ -307,7 +307,7 @@ const Contents: Record<string, AideContent> = {
   },
   "guide-tailles": {
     title: "Guide des tailles",
-    intro: "Trouvez votre taille Maje : prêt-à-porter, chaussures et correspondance internationale.",
+    intro: "Trouvez votre taille Praguaz : prêt-à-porter, chaussures et correspondance internationale.",
     blocks: [
       {
         heading: "Prêt-à-porter femme",
@@ -341,27 +341,27 @@ const Contents: Record<string, AideContent> = {
     ],
   },
   "a-propos": {
-    title: "À propos de Maje",
-    intro: "L\u2019univers Maje depuis 1998 : l\u2019audace parisienne de Judith Milgrom.",
+    title: "À propos de Praguaz",
+    intro: "L\u2019univers Praguaz : l\u2019audace bohème chic parisienne, portée par sa fondatrice.",
     blocks: [
       {
-        heading: "Judith Milgrom",
+        heading: "La fondatrice",
         paragraphs: [
-          "Fondée à Paris en 1998 par Judith Milgrom, Maje cultive une silhouette à la fois pointue et accessible, entre tailoring et bohème.",
-          "La créatrice insuffle à chaque collection son goût des matières, des imprimés et des détails couture.",
+          "Praguaz est née à Paris de la passion de sa fondatrice, vendeuse en boutique dès 19 ans puis exploratrice des grossistes parisiens avant de se lancer.",
+          "Elle cultive une silhouette à la fois pointue et accessible, entre tailoring et bohème, avec le goût des matières et des détails soignés.",
         ],
       },
       {
-        heading: "Campagne FW26",
+        heading: "Collections",
         paragraphs: [
-          "La campagne Automne-Hiver 2026 célèbre l\u2019allure parisienne : trench structuré, maille enveloppante et cuir patiné.",
+          "Chaque saison célèbre l\u2019allure parisienne : trench structuré, maille enveloppante et cuir patiné.",
           "Les visuels mettent en scène des pièces fortes pensées pour traverser les saisons sans se démoder.",
         ],
       },
       {
-        heading: "M de Maje et engagements",
+        heading: "Le Club Praguaz et engagements",
         paragraphs: [
-          "Le programme M de Maje fédère la communauté autour d\u2019avant-premières, d\u2019invitations et de services personnalisés.",
+          "Le Club Praguaz fédère la communauté autour d\u2019avant-premières, d\u2019invitations et de services personnalisés.",
           "La seconde main, les retouches et l\u2019E-Réservation prolongent la vie des pièces et limitent les déplacements inutiles.",
         ],
         links: [
@@ -393,9 +393,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const content = Contents[slug];
-  if (!content) return { title: "Page introuvable | Maje" };
+  if (!content) return { title: "Page introuvable | Praguaz" };
   return {
-    title: `${content.title} | Maje`,
+    title: `${content.title} | Praguaz`,
     description: `Maquette : ${content.intro}`,
   };
 }

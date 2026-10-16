@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Robes Femme | Maje",
+  title: "Robes Femme | Praguaz",
   description:
-    "Découvrez les robes Maje : robes en maille, robes courtes et robes midi de la collection Femme.",
+    "Découvrez les robes Praguaz : robes en maille, robes courtes et robes midi de la collection Femme.",
 };
 
 export default function RobesPage() {

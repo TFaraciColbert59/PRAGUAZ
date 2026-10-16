@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Nouveautés Femme | Maje",
+  title: "Nouveautés Femme | Praguaz",
   description:
-    "Découvrez les nouveautés Maje : les dernières robes, sacs et mailles de la collection Femme.",
+    "Découvrez les nouveautés Praguaz : les dernières robes, sacs et mailles de la collection Femme.",
 };
 
 export default function NouveautesPage() {

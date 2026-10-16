@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Last Chance : Tout voir | Maje",
+  title: "Last Chance : Tout voir | Praguaz",
   description:
-    "Découvrez toute la sélection Last Chance Maje : manteaux, robes, sacs et chaussures jusqu'à -50% avec -10% supplémentaires.",
+    "Découvrez toute la sélection Last Chance Praguaz : manteaux, robes, sacs et chaussures jusqu'à -50% avec -10% supplémentaires.",
 };
 
 export default function LastChancePage() {

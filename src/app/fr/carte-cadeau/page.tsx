@@ -7,8 +7,8 @@ import "@/components/sites/maje/maje.css";
 import "@/components/sites/maje/pages.css";
 
 export const metadata: Metadata = {
-  title: "Carte cadeau | Maje",
-  description: "Maquette : offrez une carte cadeau Maje — montants 50 à 200 €.",
+  title: "Carte cadeau | Praguaz",
+  description: "Offrez une carte cadeau Praguaz — montants 50 à 200 €.",
 };
 
 export default function GiftCardPage() {

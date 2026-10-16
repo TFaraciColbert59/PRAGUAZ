@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Bottine chelsea en suède | Maje",
+  title: "Bottine chelsea en suède | Praguaz",
   description: "Bottine chelsea en suède — 395 € → 197,50 € (-50%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

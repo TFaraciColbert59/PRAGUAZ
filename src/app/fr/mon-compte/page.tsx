@@ -5,13 +5,14 @@ import { MajeFooter } from "@/components/sites/maje/MajeFooter";
 import "@/components/sites/maje/pages.css";
 
 export const metadata: Metadata = {
-  title: "Mon compte — Maje",
+  title: "Mon compte — Praguaz",
   description: "Espace compte (maquette) : commandes, wishlist et informations personnelles.",
 };
 
 const AccountSections = [
   { title: "Mes commandes", text: "Suivez vos commandes en cours et consultez votre historique d'achats.", href: "/fr/panier/" },
   { title: "Ma wishlist", text: "Retrouvez les pièces que vous avez mises de côté.", href: "/fr/ma-wishlist/" },
+  { title: "Mon dressing", text: "Vos looks, photos et partages, privés par défaut.", href: "/fr/mon-dressing/" },
   { title: "Mes informations", text: "Gérez vos coordonnées, adresses et préférences de communication.", href: "/fr/aide/nous-contacter/" },
   { title: "E-réservation", text: "Réservez en boutique et essayez vos pièces préférées.", href: "/fr/e-reservation/" },
 ];

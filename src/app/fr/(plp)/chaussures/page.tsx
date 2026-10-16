@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Chaussures Femme | Maje",
+  title: "Chaussures Femme | Praguaz",
   description:
-    "Découvrez les chaussures Maje : bottines chelsea en suède et en cuir, bottes et escarpins femme.",
+    "Découvrez les chaussures Praguaz : bottines chelsea en suède et en cuir, bottes et escarpins femme.",
 };
 
 export default function ChaussuresPage() {

@@ -6,7 +6,7 @@ import "@/components/sites/maje/maje.css";
 import "@/components/sites/maje/pages.css";
 
 export const metadata: Metadata = {
-  title: "E-Réservation | Maje",
+  title: "E-Réservation | Praguaz",
   description: "Maquette : réservez en ligne, essayez en boutique.",
 };
 
@@ -51,7 +51,7 @@ export default function EReservationPage() {
       <MajeHeader />
       <MajeCMSPage
         title="E-Réservation"
-        eyebrow="Maje — Services boutique"
+        eyebrow="Praguaz — Services boutique"
         intro="Mettez vos pièces de côté en ligne et essayez-les tranquillement en boutique."
         blocks={Blocks}
       />

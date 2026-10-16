@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Accessoires Femme | Maje",
+  title: "Accessoires Femme | Praguaz",
   description:
-    "Découvrez les accessoires Maje : milpli en cuir, petite maroquinerie et bottines femme.",
+    "Découvrez les accessoires Praguaz : milpli en cuir, petite maroquinerie et bottines femme.",
 };
 
 export default function AccessoiresPage() {

@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Pantalons & Jeans Femme | Maje",
+  title: "Pantalons & Jeans Femme | Praguaz",
   description:
-    "Découvrez les pantalons et jeans Maje : pantalons en tweed, coupes tailleur et denim femme.",
+    "Découvrez les pantalons et jeans Praguaz : pantalons en tweed, coupes tailleur et denim femme.",
 };
 
 export default function PantalonsJeansPage() {

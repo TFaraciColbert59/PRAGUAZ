@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Milpli en cuir craquelé | Maje",
+  title: "Milpli en cuir craquelé | Praguaz",
   description: "Milpli en cuir craquelé — 425 € → 340 € (-20%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

@@ -6,8 +6,8 @@ import { MajeFooter } from "@/components/sites/maje/MajeFooter";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Maje Site Officiel : Vêtements et Accessoires pour Femme",
-  description: "Clone éducatif de la homepage fr.maje.com — Last Chance, pièces favorites.",
+  title: "PRAGUAZ : Vêtements et Accessoires pour Femme",
+  description: "Praguaz — prêt-à-porter féminin bohème chic : manteaux, robes, sacs et chaussures.",
 };
 
 export default function Home() {

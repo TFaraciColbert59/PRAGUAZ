@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Manteaux Femme | Maje",
+  title: "Manteaux Femme | Praguaz",
   description:
-    "Découvrez les manteaux Maje : manteaux longs en laine mélangée et manteaux d'hiver femme.",
+    "Découvrez les manteaux Praguaz : manteaux longs en laine mélangée et manteaux d'hiver femme.",
 };
 
 export default function ManteauxPage() {

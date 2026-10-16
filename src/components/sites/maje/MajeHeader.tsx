@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MajeCategories } from "./data";
 import { MajeMegaMenu } from "./MajeMegaMenu";
-import { IconAccount, IconBag, IconClose, IconHeart, IconMenu, IconSearch } from "./MajeIcons";
+import { IconAccount, IconBag, IconClose, IconHanger, IconHeart, IconMenu, IconSearch } from "./MajeIcons";
+import { useMajeDressing } from "@/lib/maje/dressing";
 
 function readStorageCount(key: string): number {
   try {
@@ -31,6 +32,8 @@ export function MajeHeader() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const { looks } = useMajeDressing();
+  const dressingCount = looks.length;
   const rootRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -108,10 +111,22 @@ export function MajeHeader() {
         >
           <IconSearch />
         </button>
-        <Link className="maje-logo" href="/" aria-label="Maje - Site officiel">
-          <Image src="/sites/maje/logo.svg" alt="Logo Maje - Site officiel" width={120} height={51} priority />
+        <Link className="maje-logo" href="/" aria-label="Praguaz - Boutique officielle">
+          <Image src="/sites/maje/logo.svg" alt="Logo Praguaz - Boutique officielle" width={132} height={51} priority />
         </Link>
         <div className="maje-nav-actions">
+          <Link
+            className="maje-action-link"
+            href="/fr/mon-dressing/"
+            aria-label={dressingCount > 0 ? `Mon dressing, ${dressingCount} looks` : "Mon dressing"}
+          >
+            <IconHanger />
+            {dressingCount > 0 && (
+              <span className="maje-count-badge" aria-hidden="true">
+                {dressingCount}
+              </span>
+            )}
+          </Link>
           <Link className="maje-action-link" href="/fr/mon-compte/" aria-label="Mon compte">
             <IconAccount />
           </Link>

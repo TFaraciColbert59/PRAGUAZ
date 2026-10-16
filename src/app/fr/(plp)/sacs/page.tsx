@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Sacs Femme | Maje",
+  title: "Sacs Femme | Praguaz",
   description:
-    "Découvrez les sacs Maje : milpli en cuir, pochettes et sacs à main de la collection Femme.",
+    "Découvrez les sacs Praguaz : milpli en cuir, pochettes et sacs à main de la collection Femme.",
 };
 
 export default function SacsPage() {

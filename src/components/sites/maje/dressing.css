@@ -1,0 +1,41 @@
+.maje-dressing { max-width: 1100px; margin: 0 auto; padding: 32px 20px 48px; }
+.maje-dressing-title { font-size: 26px; margin: 0 0 8px; }
+.maje-dressing-intro { font-size: 13px; color: #555; margin: 0 0 20px; }
+.maje-dressing-subtitle { font-size: 18px; margin: 32px 0 12px; }
+.maje-look-new { display: flex; gap: 8px; margin-bottom: 24px; }
+.maje-look-input { flex: 1; border: 1px solid #000; padding: 10px 12px; font-size: 13px; }
+.maje-look-new button, .maje-look-actions button, .maje-photo-item button {
+  border: 1px solid #000; background: #fff; padding: 8px 14px; font-size: 12px; cursor: pointer;
+}
+.maje-look-new button { background: #000; color: #fff; }
+.maje-look-grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .maje-look-grid { grid-template-columns: 1fr 1fr; } }
+.maje-look-card { border: 1px solid #e5e5e5; padding: 16px; display: grid; gap: 12px; }
+.maje-look-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.maje-look-head h2 { font-size: 16px; margin: 0; }
+.maje-look-visibility { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #555; }
+.maje-look-photo img { width: 100%; max-height: 320px; object-fit: cover; }
+.maje-look-items { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 13px; }
+.maje-look-items li { display: flex; justify-content: space-between; gap: 8px; }
+.maje-look-items a { color: #000; }
+.maje-look-items button { background: none; border: none; cursor: pointer; }
+.maje-look-empty { color: #888; }
+.maje-look-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.maje-photo-grid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .maje-photo-grid { grid-template-columns: repeat(4, 1fr); } }
+.maje-photo-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+.maje-photo-item button { margin-top: 6px; width: 100%; }
+
+/* ---- essayage ---- */
+.maje-tryon-btn { border: 1px solid #000; background: #fff; padding: 12px; font-size: 13px; cursor: pointer; width: 100%; margin-top: 8px; }
+.maje-tryon-overlay { position: fixed; inset: 0; z-index: 90; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.maje-tryon-modal { background: #fff; max-width: 440px; width: 100%; padding: 24px; display: grid; gap: 12px; font-size: 13px; max-height: 90vh; overflow: auto; }
+.maje-tryon-modal h2 { font-size: 18px; margin: 0; }
+.maje-tryon-modal label { display: grid; gap: 6px; }
+.maje-tryon-check { display: flex; gap: 8px; align-items: flex-start; }
+.maje-tryon-preview { width: 100%; max-height: 300px; object-fit: contain; background: #f4f4f4; }
+.maje-tryon-error { color: #b00020; margin: 0; }
+.maje-tryon-note { background: #fafafa; border: 1px solid #e5e5e5; padding: 10px 12px; margin: 0; }
+.maje-tryon-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.maje-tryon-actions button { border: 1px solid #000; background: #fff; padding: 10px 16px; font-size: 13px; cursor: pointer; }
+.maje-tryon-actions button:first-child { background: #000; color: #fff; }

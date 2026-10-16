@@ -84,3 +84,13 @@ export function IconChevronDown() {
     </Base>
   );
 }
+
+export function IconHanger() {
+  return (
+    <Base>
+      <circle cx="12" cy="4.5" r="2" />
+      <path d="M12 8V6.5" />
+      <path d="M12 8 3.5 16.5H20.5L12 8Z" />
+    </Base>
+  );
+}

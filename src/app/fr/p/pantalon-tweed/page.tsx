@@ -7,7 +7,7 @@ import { findProductBySlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Pantalon en tweed | Maje",
+  title: "Pantalon en tweed | Praguaz",
   description: "Pantalon en tweed — 295 € → 147,50 € (-50%). Livraison offerte sous 2 jours, retours offerts.",
 };
 

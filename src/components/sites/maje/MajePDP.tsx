@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MajeProducts, type MajeProduct } from "./data";
 import { IconHeart } from "./MajeIcons";
+import { MajeTryon } from "./MajeTryon";
+import { DressingQuickAdd } from "./DressingQuickAdd";
 import {
   MajePdpSlugs,
   findProductBySlug,
@@ -229,6 +231,8 @@ export function MajePDP({ product }: MajePDPProps) {
               {product.name} — taille {size} ajouté au panier. <Link href="/fr/panier/">Voir le panier</Link>
             </p>
           )}
+          <MajeTryon product={product} />
+          <DressingQuickAdd productId={product.id} />
 
           <ul className="maje-pdp-services">
             <li>Livraison à domicile offerte sous 2 jours ouvrés</li>
@@ -240,7 +244,7 @@ export function MajePDP({ product }: MajePDPProps) {
             <summary className="maje-pdp-acc-title">Détails</summary>
             <div className="maje-pdp-acc-body">
               <p>
-                {product.name} — pièce de la sélection Last Chance Maje. Coupe soignée, finitions couture et
+                {product.name} — pièce de la sélection Last Chance Praguaz. Coupe soignée, finitions couture et
                 matière premium sélectionnée par le studio.
               </p>
               <p>Composition : matières nobles mélangées. Conseil d&apos;entretien : nettoyage pressing recommandé.</p>

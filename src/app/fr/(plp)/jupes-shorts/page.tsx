@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Jupes & Shorts Femme | Maje",
+  title: "Jupes & Shorts Femme | Praguaz",
   description:
-    "Découvrez les jupes et shorts Maje : jupes en tweed, jupes courtes et shorts femme.",
+    "Découvrez les jupes et shorts Praguaz : jupes en tweed, jupes courtes et shorts femme.",
 };
 
 export default function JupesShortsPage() {

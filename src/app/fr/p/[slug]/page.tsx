@@ -25,11 +25,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = findProductBySlug(slug);
-  if (!product) return { title: "Produit introuvable — Maje" };
+  if (!product) return { title: "Produit introuvable — Praguaz" };
   const price =
     product.oldPrice !== "" ? `${product.oldPrice} → ${product.newPrice}` : product.newPrice;
   return {
-    title: `${product.name} | Maje`,
+    title: `${product.name} | Praguaz`,
     description: `${product.name} — ${price}. Livraison offerte sous 2 jours, retours offerts.`,
   };
 }

@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Vestes & Manteaux Femme | Maje",
+  title: "Vestes & Manteaux Femme | Praguaz",
   description:
-    "Découvrez les vestes et manteaux Maje : manteaux longs en laine, vestes courtes et cardigans effet cape.",
+    "Découvrez les vestes et manteaux Praguaz : manteaux longs en laine, vestes courtes et cardigans effet cape.",
 };
 
 export default function VestesManteauxPage() {

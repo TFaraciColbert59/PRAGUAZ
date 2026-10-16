@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Tops & Chemises Femme | Maje",
+  title: "Tops & Chemises Femme | Praguaz",
   description:
-    "Découvrez les tops et chemises Maje : blouses, cardigans effet cape et mailles femme.",
+    "Découvrez les tops et chemises Praguaz : blouses, cardigans effet cape et mailles femme.",
 };
 
 export default function TopsChemisesPage() {

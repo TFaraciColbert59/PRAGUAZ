@@ -7,9 +7,9 @@ import { getPlpCategory } from "@/components/sites/maje/plp-data";
 import "@/components/sites/maje/maje.css";
 
 export const metadata: Metadata = {
-  title: "Pulls & Cardigans Femme | Maje",
+  title: "Pulls & Cardigans Femme | Praguaz",
   description:
-    "Découvrez les pulls et cardigans Maje : mailles fines, cardigans effet cape et pulls amovibles.",
+    "Découvrez les pulls et cardigans Praguaz : mailles fines, cardigans effet cape et pulls amovibles.",
 };
 
 export default function PullsCardigansPage() {

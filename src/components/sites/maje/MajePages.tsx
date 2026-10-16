@@ -62,7 +62,7 @@ export function MajeCMSPage({ title, eyebrow, intro, blocks }: MajeCMSPageProps)
         ))}
       </div>
       <p className="maje-cms-disclaimer">
-        Maquette éducative non affiliée à Maje / SMCP — contenus résumés à des fins de démonstration.
+        Boutique PRAGUAZ — contenus résumés à des fins de démonstration.
       </p>
     </div>
   );

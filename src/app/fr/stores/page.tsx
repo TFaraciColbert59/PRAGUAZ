@@ -6,14 +6,14 @@ import "@/components/sites/maje/maje.css";
 import "@/components/sites/maje/pages.css";
 
 export const metadata: Metadata = {
-  title: "Store Locator — Nos boutiques | Maje",
-  description: "Maquette : trouvez une boutique Maje à Paris et en France.",
+  title: "Store Locator — Nos boutiques | Praguaz",
+  description: "Trouvez une boutique Praguaz à Paris et en France.",
 };
 
 const Stores: MajeStore[] = [
   {
     id: "marais",
-    name: "Maje — Le Marais",
+    name: "Praguaz — Le Marais",
     address: "3 rue de Sévigné",
     zip: "75004",
     city: "Paris",
@@ -22,7 +22,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "saint-germain",
-    name: "Maje — Saint-Germain",
+    name: "Praguaz — Saint-Germain",
     address: "14 rue du Four",
     zip: "75006",
     city: "Paris",
@@ -31,7 +31,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "haussmann",
-    name: "Maje — Galeries Lafayette Haussmann",
+    name: "Praguaz — Galeries Lafayette Haussmann",
     address: "40 boulevard Haussmann",
     zip: "75009",
     city: "Paris",
@@ -40,7 +40,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "halles",
-    name: "Maje — Forum des Halles",
+    name: "Praguaz — Forum des Halles",
     address: "101 porte Berger, niveau 1",
     zip: "75001",
     city: "Paris",
@@ -49,7 +49,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "lyon",
-    name: "Maje — Lyon République",
+    name: "Praguaz — Lyon République",
     address: "12 rue de la République",
     zip: "69002",
     city: "Lyon",
@@ -58,7 +58,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "bordeaux",
-    name: "Maje — Bordeaux Centre",
+    name: "Praguaz — Bordeaux Centre",
     address: "34 cours de l\u2019Intendance",
     zip: "33000",
     city: "Bordeaux",
@@ -67,7 +67,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "marseille",
-    name: "Maje — Marseille Saint-Ferréol",
+    name: "Praguaz — Marseille Saint-Ferréol",
     address: "20 rue Saint-Ferréol",
     zip: "13001",
     city: "Marseille",
@@ -76,7 +76,7 @@ const Stores: MajeStore[] = [
   },
   {
     id: "lille",
-    name: "Maje — Lille Centre",
+    name: "Praguaz — Lille Centre",
     address: "15 rue de la Grande Chaussée",
     zip: "59000",
     city: "Lille",

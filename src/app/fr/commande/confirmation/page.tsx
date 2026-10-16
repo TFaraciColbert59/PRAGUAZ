@@ -25,7 +25,7 @@ function ConfirmationContenu() {
         number = null;
       }
     }
-    if (!number) number = `MJ-${Date.now().toString().slice(-8)}`;
+    if (!number) number = `PZ-${Date.now().toString().slice(-8)}`;
     setOrderNumber(number);
     clear();
     // eslint-disable-next-line react-hooks/exhaustive-deps

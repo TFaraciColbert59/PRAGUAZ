@@ -6,15 +6,15 @@ import "@/components/sites/maje/maje.css";
 import "@/components/sites/maje/pages.css";
 
 export const metadata: Metadata = {
-  title: "Seconde Main | Maje",
-  description: "Maquette : la seconde main Maje — pièces vérifiées, économie circulaire.",
+  title: "Seconde Main | Praguaz",
+  description: "La seconde main Praguaz — pièces vérifiées, économie circulaire.",
 };
 
 const Blocks: MajeCMSBlock[] = [
   {
     heading: "Une seconde vie pour vos pièces",
     paragraphs: [
-      "La Seconde Main prolonge la durée de vie des vestes, robes et sacs Maje : chaque pièce est vérifiée, nettoyée et reconditionnée avant d\u2019être remise en vente.",
+      "La Seconde Main prolonge la durée de vie des vestes, robes et sacs Praguaz : chaque pièce est vérifiée, nettoyée et reconditionnée avant d\u2019être remise en vente.",
       "Vendre ou acheter d\u2019occasion permet de réduire l\u2019impact environnemental tout en accédant aux icônes de la marque à prix doux.",
     ],
   },
@@ -51,8 +51,8 @@ export default function SecondeMainPage() {
       <MajeHeader />
       <MajeCMSPage
         title="Seconde Main"
-        eyebrow="Maje — Économie circulaire"
-        intro="Donnez une seconde vie à vos pièces Maje : dépôt, reconditionnement et revente vérifiée."
+        eyebrow="Praguaz — Économie circulaire"
+        intro="Donnez une seconde vie à vos pièces Praguaz : dépôt, reconditionnement et revente vérifiée."
         blocks={Blocks}
       />
       <MajeFooter />
