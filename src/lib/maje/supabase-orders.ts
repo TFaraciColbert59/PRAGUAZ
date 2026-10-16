@@ -35,27 +35,26 @@ export async function saveOrderToSupabase(
       const unit = parseMajePrice(line.product.newPrice);
       return sum + unit * line.qty;
     }, total);
-    const { data: order, error } = await supabase
-      .from("orders")
-      .insert({
-        numero: orderNumber,
-        email: shipping.email ?? "",
-        prenom: shipping.prenom ?? "",
-        nom: shipping.nom ?? "",
-        telephone: shipping.telephone ?? "",
-        adresse: shipping.adresse ?? "",
-        code_postal: shipping.codePostal ?? "",
-        ville: shipping.ville ?? "",
-        pays: shipping.pays ?? "France",
-        sous_total: subtotal,
-        total,
-        statut: "simulee",
-      })
-      .select("id")
-      .single();
-    if (error || !order) return false;
+    // ID généré côté client : évite un SELECT (pas de policy lecture publique).
+    const orderId = window.crypto.randomUUID();
+    const { error } = await supabase.from("orders").insert({
+      id: orderId,
+      numero: orderNumber,
+      email: shipping.email ?? "",
+      prenom: shipping.prenom ?? "",
+      nom: shipping.nom ?? "",
+      telephone: shipping.telephone ?? "",
+      adresse: shipping.adresse ?? "",
+      code_postal: shipping.codePostal ?? "",
+      ville: shipping.ville ?? "",
+      pays: shipping.pays ?? "France",
+      sous_total: subtotal,
+      total,
+      statut: "simulee",
+    });
+    if (error) return false;
     const items = lines.map((line) => ({
-      order_id: (order as { id: string }).id,
+      order_id: orderId,
       product_id: line.id,
       product_name: line.product.name,
       size: line.size,
