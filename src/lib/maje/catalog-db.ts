@@ -400,10 +400,24 @@ function evaluateDbCoupon(coupon: DbCouponRow, totalCents: number): CouponValida
   return { ok: true, percent: coupon.percent, reason: `Code appliqué : -${coupon.percent} %.` };
 }
 
+function mergeCatalogs(db: DbProduct[] | null): DbProduct[] {
+  const local = buildLocalCatalog();
+  if (db === null) return local;
+  const seen = new Set(local.map((p) => p.id));
+  const merged = [...local];
+  for (const product of db) {
+    if (!seen.has(product.id)) {
+      seen.add(product.id);
+      merged.push(product);
+    }
+  }
+  return merged;
+}
+
 export async function getDbCatalog(): Promise<DbProduct[]> {
   try {
     const db = await fetchDbCatalog();
-    if (db !== null) return db;
+    return mergeCatalogs(db);
   } catch {
     // Repli local ci-dessous, jamais de throw.
   }
@@ -458,8 +472,9 @@ export async function getDbProduct(slug: string): Promise<DbProduct | null> {
 export async function checkAvailability(items: AvailabilityItem[]): Promise<AvailabilityCheck> {
   try {
     const db = await fetchDbCatalog();
-    // Données locales : stock inconnu, toujours ok.
-    if (db === null) return { ok: true, problems: [] };
+    // Catalogue fusionné : les produits locaux restent toujours disponibles
+    // (stock inconnu), les produits DB appliquent leur stock réel.
+    const catalog = mergeCatalogs(db);
     const problems: string[] = [];
     for (const item of items) {
       const qty = Math.floor(item.qty);
@@ -467,7 +482,7 @@ export async function checkAvailability(items: AvailabilityItem[]): Promise<Avai
         problems.push(`Quantité invalide pour l'article « ${item.id} ».`);
         continue;
       }
-      const product = db.find((p) => p.id === item.id || p.slug === item.id.toLowerCase());
+      const product = catalog.find((p) => p.id === item.id || p.slug === item.id.toLowerCase());
       if (product === undefined) {
         problems.push(`Produit introuvable : « ${item.id} ».`);
         continue;
@@ -475,8 +490,12 @@ export async function checkAvailability(items: AvailabilityItem[]): Promise<Avai
       const variant = product.variants.find(
         (v) => v.size.toLowerCase() === item.size.toLowerCase(),
       );
+      // Catalogue sans variantes : stock inconnu, on laisse passer (repli local).
+      // Catalogue avec variantes mais taille absente : refus (anti-triche).
       if (variant === undefined) {
-        problems.push(`Taille « ${item.size} » indisponible pour « ${product.name} ».`);
+        if (product.variants.length > 0) {
+          problems.push(`Taille « ${item.size} » indisponible pour « ${product.name} ».`);
+        }
         continue;
       }
       if (qty > variant.stock) {
