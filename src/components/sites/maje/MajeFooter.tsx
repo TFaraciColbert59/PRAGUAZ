@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Link from "next/link";
+import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 
 interface FooterLink {
   label: string;
@@ -81,20 +82,31 @@ function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "error" | "done">("idle");
 
-  function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    const clean = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(clean)) {
       setStatus("error");
       return;
     }
     try {
       const raw = window.localStorage.getItem("maje-newsletter");
       const list: string[] = raw ? (JSON.parse(raw) as string[]) : [];
-      if (!list.includes(email.trim())) {
-        window.localStorage.setItem("maje-newsletter", JSON.stringify([...list, email.trim()]));
+      if (!list.includes(clean)) {
+        window.localStorage.setItem("maje-newsletter", JSON.stringify([...list, clean]));
       }
     } catch {
       // stockage indisponible : on confirme quand même
+    }
+    // Sauvegarde Supabase en arrière-plan (table absente = ignoré, jamais bloquant)
+    try {
+      const supabase = createSupabaseBrowserClient();
+      await Promise.race([
+        supabase.from("newsletter_subscribers").insert({ email: clean }),
+        new Promise((resolve) => setTimeout(resolve, 4000)),
+      ]);
+    } catch {
+      // Supabase indisponible : l'inscription locale suffit
     }
     setStatus("done");
   }

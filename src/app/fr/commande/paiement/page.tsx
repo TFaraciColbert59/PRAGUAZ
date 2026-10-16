@@ -6,6 +6,7 @@ import Link from "next/link";
 import { MajeHeader } from "@/components/sites/maje/MajeHeader";
 import { MajeFooter } from "@/components/sites/maje/MajeFooter";
 import { useMajeCart, formatMajePrice } from "@/lib/maje/cart";
+import { saveOrderToSupabase } from "@/lib/maje/supabase-orders";
 import "@/components/sites/maje/maje.css";
 import "@/components/sites/maje/commerce.css";
 
@@ -18,7 +19,7 @@ export default function PaiementPage() {
   const [cryptogramme, setCryptogramme] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!titulaire.trim() || !numero.trim() || !expiration.trim() || !cryptogramme.trim()) {
       setError("Veuillez remplir tous les champs de la carte.");
@@ -46,6 +47,12 @@ export default function PaiementPage() {
     } catch {
       // stockage indisponible : on poursuit vers la confirmation
     }
+    // Sauvegarde Supabase en arrière-plan (tables absentes = ignoré, jamais bloquant)
+    const snapshot = lines.map((line) => ({ ...line }));
+    void Promise.race([
+      saveOrderToSupabase(orderNumber, snapshot, total),
+      new Promise((resolve) => setTimeout(resolve, 4000)),
+    ]);
     router.push(`/fr/commande/confirmation?commande=${encodeURIComponent(orderNumber)}`);
   }
 
