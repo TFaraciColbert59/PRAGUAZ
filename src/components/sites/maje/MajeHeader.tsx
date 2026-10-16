@@ -7,6 +7,7 @@ import { MajeCategories } from "./data";
 import { MajeMegaMenu } from "./MajeMegaMenu";
 import { IconAccount, IconBag, IconClose, IconHanger, IconHeart, IconMenu, IconSearch } from "./MajeIcons";
 import { useMajeDressing } from "@/lib/maje/dressing";
+import { useMajeAuth } from "@/lib/maje/auth";
 
 function readStorageCount(key: string): number {
   try {
@@ -33,6 +34,7 @@ export function MajeHeader() {
   const [cartCount, setCartCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
   const { looks } = useMajeDressing();
+  const { user } = useMajeAuth();
   const dressingCount = looks.length;
   const rootRef = useRef<HTMLElement | null>(null);
 
@@ -127,7 +129,11 @@ export function MajeHeader() {
               </span>
             )}
           </Link>
-          <Link className="maje-action-link" href="/fr/mon-compte/" aria-label="Mon compte">
+          <Link
+            className="maje-action-link"
+            href={user ? "/fr/compte/" : "/fr/compte/connexion/"}
+            aria-label={user ? `Mon compte (${user.email ?? ""})` : "Mon compte"}
+          >
             <IconAccount />
           </Link>
           <Link

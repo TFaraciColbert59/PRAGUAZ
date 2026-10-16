@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { MajeCartProvider } from "@/lib/maje/cart";
 import { MajeDressingProvider } from "@/lib/maje/dressing";
+import { MajeAuthProvider } from "@/lib/maje/auth";
 import { MajeCookie } from "@/components/sites/maje/MajeCookie";
 import { MajeChat } from "@/components/sites/maje/MajeChat";
 import "./globals.css";
@@ -35,9 +36,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <MajeCartProvider>
-          <MajeDressingProvider>{children}</MajeDressingProvider>
-        </MajeCartProvider>
+        <MajeAuthProvider>
+          <MajeCartProvider>
+            <MajeDressingProvider>{children}</MajeDressingProvider>
+          </MajeCartProvider>
+        </MajeAuthProvider>
         <MajeCookie />
         <MajeChat />
       </body>

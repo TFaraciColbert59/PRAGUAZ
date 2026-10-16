@@ -31,6 +31,13 @@ export async function saveOrderToSupabase(
   try {
     const supabase = createSupabaseBrowserClient();
     const shipping = readShipping();
+    let userId: string | null = null;
+    try {
+      const { data } = await supabase.auth.getUser();
+      userId = data.user?.id ?? null;
+    } catch {
+      userId = null;
+    }
     const subtotal = lines.reduce((sum, line) => {
       const unit = parseMajePrice(line.product.newPrice);
       return sum + unit * line.qty;
@@ -40,6 +47,7 @@ export async function saveOrderToSupabase(
     const { error } = await supabase.from("orders").insert({
       id: orderId,
       numero: orderNumber,
+      user_id: userId,
       email: shipping.email ?? "",
       prenom: shipping.prenom ?? "",
       nom: shipping.nom ?? "",
