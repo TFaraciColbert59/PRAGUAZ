@@ -1,0 +1,277 @@
+.maje-pdp {
+  font-family: "AvantGarde", "ITC Avant Garde Gothic", Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #000;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 20px 56px;
+}
+.maje-pdp-breadcrumb {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 8px 0 20px;
+}
+.maje-pdp-breadcrumb a {
+  color: #6b6b6b;
+  text-decoration: none;
+}
+.maje-pdp-breadcrumb strong {
+  color: #000;
+  font-weight: 400;
+}
+.maje-pdp-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+@media (min-width: 900px) {
+  .maje-pdp-layout {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+}
+.maje-pdp-gallery {
+  display: grid;
+  gap: 12px;
+}
+.maje-pdp-main {
+  position: relative;
+  aspect-ratio: 720 / 955;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.maje-pdp-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.maje-pdp-main-img--zoom {
+  transform: scale(1.6);
+}
+.maje-pdp-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  z-index: 2;
+}
+.maje-pdp-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.maje-pdp-thumb {
+  border: 1px solid #e5e5e5;
+  background: #f4f4f4;
+  padding: 0;
+  cursor: pointer;
+  aspect-ratio: 720 / 955;
+  overflow: hidden;
+}
+.maje-pdp-thumb--active {
+  border-color: #000;
+  border-width: 2px;
+}
+.maje-pdp-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.maje-pdp-info {
+  display: flex;
+  flex-direction: column;
+}
+.maje-pdp-name {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+.maje-pdp-ref {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 6px 0 0;
+}
+.maje-pdp-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 0;
+  font-size: 16px;
+}
+.maje-pdp-old {
+  color: #6b6b6b;
+}
+.maje-pdp-new {
+  font-size: 18px;
+}
+.maje-pdp-discount {
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 8px;
+}
+.maje-pdp-promo-note {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 8px 0 0;
+}
+.maje-pdp-size-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 24px 0 10px;
+}
+.maje-pdp-size-label {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.maje-pdp-size-guide {
+  font-size: 12px;
+  color: #6b6b6b;
+  text-decoration: underline;
+}
+.maje-pdp-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.maje-pdp-size {
+  min-width: 48px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+.maje-pdp-size--active {
+  border-color: #000;
+  border-width: 2px;
+  font-weight: 700;
+}
+.maje-pdp-size-error {
+  color: #b00020;
+  font-size: 13px;
+  margin: 8px 0 0;
+}
+.maje-pdp-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.maje-pdp-add {
+  flex: 1;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 14px 20px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.maje-pdp-add--added {
+  background: #1a7f37;
+}
+.maje-pdp-wish {
+  width: 52px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+.maje-pdp-wish--active {
+  background: #000;
+  color: #fff;
+}
+.maje-pdp-added-msg {
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+.maje-pdp-added-msg a {
+  color: #000;
+  text-decoration: underline;
+}
+.maje-pdp-services {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid #eee;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  color: #333;
+}
+.maje-pdp-acc {
+  border-top: 1px solid #e5e5e5;
+  margin-top: 12px;
+  padding: 12px 0;
+}
+.maje-pdp-acc:last-of-type {
+  border-bottom: 1px solid #e5e5e5;
+}
+.maje-pdp-acc-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  list-style: none;
+}
+.maje-pdp-acc-body {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.6;
+}
+.maje-pdp-related {
+  margin-top: 56px;
+}
+.maje-pdp-related-title {
+  font-size: 20px;
+  text-align: center;
+  margin: 0 0 24px;
+  font-weight: 600;
+}
+.maje-pdp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .maje-pdp-related-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+.maje-pdp-related-card {
+  color: #000;
+  text-decoration: none;
+}
+.maje-pdp-related-img {
+  position: relative;
+  aspect-ratio: 720 / 955;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.maje-pdp-related-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.maje-pdp-related-name {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 10px 0 4px;
+}
+.maje-pdp-related-price {
+  font-size: 13px;
+  margin: 0;
+}
+.maje-pdp-related-price s {
+  color: #6b6b6b;
+}

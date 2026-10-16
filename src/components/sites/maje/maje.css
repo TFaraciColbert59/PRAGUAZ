@@ -1,0 +1,308 @@
+.maje-page {
+  font-family: "AvantGarde", "ITC Avant Garde Gothic", Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: #000;
+}
+.maje-topbar {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  text-transform: uppercase;
+}
+.maje-topbar a { color: #fff; text-decoration: none; }
+.maje-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.maje-logo { margin-inline: auto; display: flex; }
+.maje-icon-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.maje-nav-actions { display: flex; gap: 14px; font-size: 20px; }
+.maje-nav-actions a { color: #000; text-decoration: none; }
+.maje-cats {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.maje-cats a { color: #000; text-decoration: none; }
+.maje-hero { position: relative; min-height: 78vh; overflow: hidden; background: #111; }
+.maje-hero-img { object-fit: cover; object-position: center; }
+.maje-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 48px 6vw;
+  color: #fff;
+}
+.maje-hero-kicker { font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; margin: 0 0 8px; }
+.maje-hero-title { font-size: clamp(34px, 6vw, 72px); line-height: 1.02; margin: 0 0 20px; font-weight: 600; }
+.maje-hero-title span { display: block; font-weight: 400; }
+.maje-hero-cta {
+  background: #fff;
+  color: #000;
+  padding: 12px 34px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.maje-section { padding: 40px 20px; max-width: 1400px; margin: 0 auto; }
+.maje-section-title { font-size: 22px; text-align: center; margin: 0 0 24px; font-weight: 600; }
+.maje-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (min-width: 900px) {
+  .maje-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+}
+.maje-tile-img { position: relative; aspect-ratio: 720 / 955; overflow: hidden; background: #f4f4f4; }
+.maje-tile-img img { width: 100%; height: 100%; object-fit: cover; }
+.maje-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
+  z-index: 2;
+}
+.maje-tile-body h3 { font-size: 13px; font-weight: 400; margin: 10px 0 4px; }
+.maje-price { display: flex; gap: 8px; font-size: 13px; margin: 0; }
+.maje-price s { color: #6b6b6b; }
+.maje-services {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+  border-top: 1px solid #eee;
+  padding-top: 24px;
+  font-size: 13px;
+}
+@media (min-width: 900px) { .maje-services { grid-template-columns: repeat(4, 1fr); } }
+.maje-service strong { display: block; }
+.maje-service span { color: #6b6b6b; }
+.maje-footer { border-top: 1px solid #e5e5e5; padding: 32px 20px; background: #fafafa; }
+.maje-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-size: 13px;
+}
+@media (min-width: 900px) { .maje-footer-grid { grid-template-columns: repeat(4, 1fr); } }
+.maje-footer h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px; }
+.maje-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.maje-footer a { color: #333; text-decoration: none; }
+.maje-legal { text-align: center; color: #888; font-size: 12px; margin: 24px 0 0; }
+
+/* --- Header enrichi : mega-menu + recherche + compte (append only) --- */
+.maje-menu-wrap { position: relative; }
+.maje-action-link { position: relative; display: inline-flex; align-items: center; }
+.maje-count-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+.maje-mega {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(86vw, 340px);
+  background: #fff;
+  border-right: 1px solid #e5e5e5;
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  overflow-y: auto;
+  z-index: 50;
+}
+.maje-mega-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.maje-mega-col h3 {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+}
+.maje-mega-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.maje-mega-col a { color: #333; text-decoration: none; font-size: 13px; }
+.maje-mega-col a:hover { text-decoration: underline; }
+.maje-mega-foot { margin-top: 24px; padding-top: 16px; border-top: 1px solid #eee; }
+.maje-mega-foot a {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 18px;
+}
+.maje-search { border-bottom: 1px solid #e5e5e5; padding: 12px 20px; background: #fff; }
+.maje-search-form { display: flex; align-items: center; gap: 12px; max-width: 720px; margin: 0 auto; }
+.maje-search-input {
+  flex: 1;
+  border: 1px solid #000;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.maje-search-close { background: none; border: none; font-size: 18px; cursor: pointer; }
+@media (min-width: 900px) {
+  .maje-mega {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    padding: 28px 32px;
+  }
+  .maje-mega-grid { grid-template-columns: repeat(4, 1fr); max-width: 1400px; margin: 0 auto; }
+  .maje-mega-foot { max-width: 1400px; margin-left: auto; margin-right: auto; }
+}
+
+/* ---- header sticky ---- */
+.maje-header { position: sticky; top: 0; z-index: 60; background: #fff; }
+.maje-header.maje-header--scrolled .maje-nav { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.maje-nav { transition: box-shadow .25s ease; }
+.maje-icon-btn, .maje-action-link { display: inline-flex; align-items: center; justify-content: center; color: #000; transition: opacity .2s ease, transform .2s ease; }
+.maje-icon-btn:hover, .maje-action-link:hover { opacity: .6; }
+.maje-action-link { position: relative; text-decoration: none; }
+.maje-count-badge {
+  position: absolute; top: -6px; right: -8px; min-width: 16px; height: 16px;
+  border-radius: 999px; background: #000; color: #fff; font-size: 10px;
+  display: inline-flex; align-items: center; justify-content: center; padding: 0 4px;
+}
+
+/* ---- mega menu / search transitions ---- */
+.maje-mega { animation: maje-drop .25s ease both; transform-origin: top center; }
+@keyframes maje-drop { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.maje-search { animation: maje-drop .2s ease both; }
+
+/* ---- hero entrance ---- */
+@keyframes maje-hero-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.maje-hero-kicker { animation: maje-hero-up .7s ease .1s both; }
+.maje-hero-title { animation: maje-hero-up .7s ease .25s both; }
+.maje-hero-cta { animation: maje-hero-up .7s ease .4s both; transition: background .2s ease, color .2s ease; }
+.maje-hero-cta:hover { background: #000; color: #fff; }
+.maje-hero-img { animation: maje-hero-zoom 6s ease-out both; }
+@keyframes maje-hero-zoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+/* ---- tiles : lien + hover ---- */
+.maje-tile-link { display: block; color: inherit; text-decoration: none; }
+.maje-tile-img { position: relative; overflow: hidden; }
+.maje-tile-img img { transition: transform .5s ease, opacity .4s ease; }
+.maje-tile-link:hover .maje-tile-img img { transform: scale(1.05); }
+.maje-tile-img .maje-tile-img--alt { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.maje-tile-link:hover .maje-tile-img--alt { opacity: 1; }
+.maje-tile-link:hover .maje-tile-body h3 { text-decoration: underline; }
+
+/* ---- scroll reveal (natif, sans JS) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .maje-section-title, .maje-service, .maje-footer-grid > div {
+    animation: maje-rise .6s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
+  @keyframes maje-rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .maje-hero-img, .maje-hero-kicker, .maje-hero-title, .maje-hero-cta { animation: none; }
+}
+
+/* ---- PDP ---- */
+.maje-pdp-related-card { transition: transform .25s ease; }
+.maje-pdp-related-card:hover { transform: translateY(-3px); }
+.maje-pdp-add, .maje-cart-cta, .maje-search-btn { transition: background .2s ease, opacity .2s ease; }
+.maje-pdp-add:hover, .maje-cart-cta:hover { opacity: .82; }
+.maje-pdp-thumb { transition: outline-color .2s ease, opacity .2s ease; }
+.maje-pdp-thumb:hover { opacity: .8; }
+
+/* ---- drawer / overlays ---- */
+.maje-cart-drawer, .maje-mega, .maje-chat-panel, .maje-cookie { animation: maje-drop .25s ease both; }
+
+/* ---- newsletter footer ---- */
+.maje-nl { max-width: 1400px; margin: 0 auto 28px; text-align: center; }
+.maje-nl-title { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 12px; }
+.maje-nl-form { display: grid; gap: 8px; justify-items: center; }
+.maje-nl-label { font-size: 13px; color: #333; }
+.maje-nl-row { display: flex; gap: 0; width: min(420px, 100%); }
+.maje-nl-input { flex: 1; border: 1px solid #000; border-right: none; padding: 10px 12px; font-size: 13px; }
+.maje-nl-btn { border: 1px solid #000; background: #000; color: #fff; padding: 0 20px; font-size: 13px; cursor: pointer; }
+.maje-nl-error { color: #b00020; font-size: 12px; margin: 0; }
+.maje-nl-done { font-size: 13px; }
+.maje-footer-socials { display: flex; gap: 16px; justify-content: center; margin: 24px 0 8px; }
+.maje-social-link { color: #000; transition: opacity .2s ease; }
+.maje-social-link:hover { opacity: .55; }
+
+/* ---- cookie ---- */
+.maje-cookie {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 80;
+  background: #fff; border: 1px solid #000; padding: 14px 16px;
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(0,0,0,.15);
+}
+.maje-cookie-text { font-size: 12px; margin: 0; flex: 1 1 240px; }
+.maje-cookie-text a { color: #000; }
+.maje-cookie-actions { display: flex; gap: 8px; }
+.maje-cookie-btn { border: 1px solid #000; background: #fff; padding: 8px 16px; font-size: 12px; cursor: pointer; }
+.maje-cookie-btn--primary { background: #000; color: #fff; }
+
+/* ---- chat ---- */
+.maje-chat { position: fixed; right: 16px; bottom: 16px; z-index: 80; }
+.maje-chat-fab {
+  width: 52px; height: 52px; border-radius: 999px; border: 1px solid #000;
+  background: #000; color: #fff; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25); transition: transform .2s ease;
+}
+.maje-chat-fab:hover { transform: scale(1.06); }
+.maje-chat-panel {
+  position: absolute; right: 0; bottom: 62px; width: min(320px, 86vw);
+  background: #fff; border: 1px solid #000; box-shadow: 0 12px 40px rgba(0,0,0,.2);
+}
+.maje-chat-head { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid #eee; font-size: 14px; }
+.maje-chat-head button { background: none; border: none; cursor: pointer; font-size: 14px; }
+.maje-chat-body { display: grid; gap: 8px; padding: 14px; font-size: 13px; }
+.maje-chat-hello, .maje-chat-a { margin: 0; color: #333; }
+.maje-chat-q { border: 1px solid #000; background: #fff; padding: 8px 12px; font-size: 13px; cursor: pointer; text-align: left; }
+.maje-chat-q--asked { background: #f4f4f4; }
+.maje-chat-contact { color: #000; font-size: 13px; }
