@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { MajeHeader } from "@/components/sites/maje/MajeHeader";
 import { MajeFooter } from "@/components/sites/maje/MajeFooter";
-import { decodeSharedLook } from "@/lib/maje/dressing";
+import { decodeSharedLook, isShareRevoked } from "@/lib/maje/dressing";
 import { MajeProducts } from "@/components/sites/maje/data";
 import { getProductSlug } from "@/components/sites/maje/product-slugs";
 import "@/components/sites/maje/maje.css";
@@ -22,6 +22,7 @@ function readSharedState(): SharedState {
   if (!match) return { status: "invalid" };
   const decoded = decodeSharedLook(match[1]);
   if (!decoded) return { status: "invalid" };
+  if (isShareRevoked(decoded.shareCode)) return { status: "invalid" };
   return { status: "ok", title: decoded.title, productIds: decoded.productIds };
 }
 

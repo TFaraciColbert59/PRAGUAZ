@@ -85,17 +85,56 @@ export function encodeSharedLook(look: MajeLook): string {
   return btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
 }
 
-export function decodeSharedLook(hash: string): { title: string; productIds: string[] } | null {
+export function decodeSharedLook(hash: string): {
+  title: string;
+  productIds: string[];
+  shareCode: string | null;
+} | null {
   try {
     const parsed: unknown = JSON.parse(decodeURIComponent(escape(atob(hash))));
     if (typeof parsed !== "object" || parsed === null) return null;
     const p = parsed as Record<string, unknown>;
     const title = p.title ?? p.t;
     const productIds = p.productIds ?? p.p;
+    const shareCode = p.shareCode ?? p.c;
     if (typeof title !== "string" || !Array.isArray(productIds)) return null;
-    return { title, productIds: productIds.filter((v): v is string => typeof v === "string") };
+    return {
+      title,
+      productIds: productIds.filter((v): v is string => typeof v === "string"),
+      shareCode: typeof shareCode === "string" ? shareCode : null,
+    };
   } catch {
     return null;
+  }
+}
+
+const REVOKED_KEY = "praguaz-revoked-shares";
+
+function readRevoked(): string[] {
+  try {
+    const raw = window.localStorage.getItem(REVOKED_KEY);
+    if (!raw) return [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((v): v is string => typeof v === "string");
+  } catch {
+    return [];
+  }
+}
+
+export function isShareRevoked(shareCode: string | null): boolean {
+  if (!shareCode) return false;
+  return readRevoked().includes(shareCode);
+}
+
+function revokeShare(shareCode: string): void {
+  try {
+    const revoked = readRevoked();
+    if (!revoked.includes(shareCode)) {
+      window.localStorage.setItem(REVOKED_KEY, JSON.stringify([...revoked, shareCode]));
+    }
+  } catch {
+    // stockage indisponible : révocation limitée à la session
   }
 }
 
@@ -190,9 +229,11 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
 
   const unshareLook = useCallback((lookId: string) => {
     dirtyRef.current = true;
-    setLooks((prev) =>
-      prev.map((l) => (l.id === lookId ? { ...l, visibility: "prive" as const } : l)),
-    );
+    setLooks((prev) => {
+      const target = prev.find((l) => l.id === lookId);
+      if (target?.shareCode) revokeShare(target.shareCode);
+      return prev.map((l) => (l.id === lookId ? { ...l, visibility: "prive" as const } : l));
+    });
   }, []);
 
   const addPhoto = useCallback((photoDataUrl: string) => {

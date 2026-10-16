@@ -39,7 +39,7 @@ export function MajeCMSPage({ title, eyebrow, intro, blocks }: MajeCMSPageProps)
         <span aria-hidden="true"> / </span>
         <span>{title}</span>
       </nav>
-      <p className="maje-cms-eyebrow">{eyebrow ?? "Maje — Aide & Services"}</p>
+      <p className="maje-cms-eyebrow">{eyebrow ?? "Praguaz — Aide & Services"}</p>
       <h1 className="maje-cms-title">{title}</h1>
       {intro ? <p className="maje-cms-intro">{intro}</p> : null}
       <div className="maje-cms-blocks">
