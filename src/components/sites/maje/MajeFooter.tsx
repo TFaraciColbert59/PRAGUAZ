@@ -36,6 +36,8 @@ const FooterCols: { title: string; links: FooterLink[] }[] = [
     title: "À propos",
     links: [
       { label: "Notre histoire", href: "/fr/aide/a-propos" },
+      { label: "Club", href: "/club" },
+      { label: "Fidélité", href: "/fr/compte/fidelite" },
       { label: "Seconde Main", href: "/fr/seconde-main" },
       { label: "E-Réservation", href: "/fr/e-reservation" },
       { label: "Réparation & Retouches", href: "/fr/aide/entretien" },

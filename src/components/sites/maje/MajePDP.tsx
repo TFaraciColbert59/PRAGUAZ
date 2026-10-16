@@ -7,6 +7,7 @@ import { MajeProducts, type MajeProduct } from "./data";
 import { IconHeart } from "./MajeIcons";
 import { MajeTryon } from "./MajeTryon";
 import { DressingQuickAdd } from "./DressingQuickAdd";
+import { JsonLdProduct } from "./MajeJsonLd";
 import {
   MajePdpSlugs,
   findProductBySlug,
@@ -120,6 +121,7 @@ export function MajePDP({ product }: MajePDPProps) {
 
   return (
     <div className="maje-pdp">
+      <JsonLdProduct product={product} />
       <nav className="maje-pdp-breadcrumb" aria-label="Fil d'Ariane">
         <Link href="/">Accueil</Link>
         <span aria-hidden="true"> / </span>
