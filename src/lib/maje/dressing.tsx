@@ -19,14 +19,30 @@ export interface MajeLook {
   visibility: "prive" | "partage";
   shareCode?: string;
   createdAt: string;
+  updatedAt?: string;
+  occasion?: string;
+  note?: string;
+  favorite?: boolean;
 }
+
+export const MAJE_OCCASIONS = [
+  "Quotidien",
+  "Bureau",
+  "Soirée",
+  "Cérémonie",
+  "Week-end",
+  "Vacances",
+] as const;
 
 interface MajeDressingContextValue {
   looks: MajeLook[];
   photos: string[];
-  createLook: (title: string, productIds?: string[]) => MajeLook;
+  createLook: (title: string, productIds?: string[], occasion?: string) => MajeLook;
   renameLook: (id: string, title: string) => void;
   removeLook: (id: string) => void;
+  duplicateLook: (id: string) => void;
+  toggleFavorite: (id: string) => void;
+  updateLook: (id: string, patch: { title?: string; occasion?: string; note?: string }) => void;
   addProductToLook: (lookId: string, productId: string) => void;
   removeProductFromLook: (lookId: string, productId: string) => void;
   setLookPhoto: (lookId: string, photoDataUrl: string | undefined) => void;
@@ -55,13 +71,23 @@ function readLooks(): MajeLook[] {
     if (!raw) return [];
     const parsed: unknown = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (v): v is MajeLook =>
-        typeof v === "object" &&
-        v !== null &&
-        typeof (v as MajeLook).id === "string" &&
-        Array.isArray((v as MajeLook).productIds),
-    );
+    return parsed
+      .filter(
+        (v): v is MajeLook =>
+          typeof v === "object" &&
+          v !== null &&
+          typeof (v as MajeLook).id === "string" &&
+          Array.isArray((v as MajeLook).productIds),
+      )
+      .map((v) => ({
+        ...v,
+        productIds: v.productIds.filter((p): p is string => typeof p === "string"),
+        visibility: v.visibility === "partage" ? "partage" : "prive",
+        title: typeof v.title === "string" && v.title.trim() !== "" ? v.title : "Mon look",
+        occasion: typeof v.occasion === "string" ? v.occasion : undefined,
+        note: typeof v.note === "string" ? v.note : undefined,
+        favorite: v.favorite === true,
+      }));
   } catch {
     return [];
   }
@@ -168,22 +194,90 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
     }
   }, [photos]);
 
-  const createLook = useCallback((title: string, productIds: string[] = []): MajeLook => {
-    dirtyRef.current = true;
-    const look: MajeLook = {
-      id: makeId("look"),
-      title: title.trim() || "Mon look",
-      productIds: [...new Set(productIds)],
-      visibility: "prive",
-      createdAt: new Date().toISOString(),
-    };
-    setLooks((prev) => [look, ...prev]);
-    return look;
-  }, []);
+  const createLook = useCallback(
+    (title: string, productIds: string[] = [], occasion?: string): MajeLook => {
+      dirtyRef.current = true;
+      const now = new Date().toISOString();
+      const look: MajeLook = {
+        id: makeId("look"),
+        title: title.trim() || "Mon look",
+        productIds: [...new Set(productIds)],
+        visibility: "prive",
+        createdAt: now,
+        updatedAt: now,
+        occasion: occasion?.trim() ? occasion.trim() : undefined,
+        favorite: false,
+      };
+      setLooks((prev) => [look, ...prev]);
+      return look;
+    },
+    [],
+  );
 
   const renameLook = useCallback((id: string, title: string) => {
     dirtyRef.current = true;
-    setLooks((prev) => prev.map((l) => (l.id === id ? { ...l, title: title.trim() || l.title } : l)));
+    const now = new Date().toISOString();
+    setLooks((prev) =>
+      prev.map((l) => (l.id === id ? { ...l, title: title.trim() || l.title, updatedAt: now } : l)),
+    );
+  }, []);
+
+  const updateLook = useCallback(
+    (id: string, patch: { title?: string; occasion?: string; note?: string }) => {
+      dirtyRef.current = true;
+      const now = new Date().toISOString();
+      setLooks((prev) =>
+        prev.map((l) => {
+          if (l.id !== id) return l;
+          const next: MajeLook = { ...l, updatedAt: now };
+          if (patch.title !== undefined) {
+            const t = patch.title.trim();
+            if (t !== "") next.title = t;
+          }
+          if (patch.occasion !== undefined) {
+            const o = patch.occasion.trim();
+            next.occasion = o === "" ? undefined : o;
+          }
+          if (patch.note !== undefined) {
+            const n = patch.note.trim();
+            next.note = n === "" ? undefined : patch.note.slice(0, 280);
+          }
+          return next;
+        }),
+      );
+    },
+    [],
+  );
+
+  const toggleFavorite = useCallback((id: string) => {
+    dirtyRef.current = true;
+    setLooks((prev) =>
+      prev.map((l) =>
+        l.id === id
+          ? { ...l, favorite: !l.favorite, updatedAt: new Date().toISOString() }
+          : l,
+      ),
+    );
+  }, []);
+
+  const duplicateLook = useCallback((id: string) => {
+    dirtyRef.current = true;
+    const now = new Date().toISOString();
+    setLooks((prev) => {
+      const src = prev.find((l) => l.id === id);
+      if (!src) return prev;
+      const copy: MajeLook = {
+        ...src,
+        id: makeId("look"),
+        title: `${src.title} (copie)`,
+        visibility: "prive",
+        shareCode: undefined,
+        favorite: false,
+        createdAt: now,
+        updatedAt: now,
+      };
+      return [copy, ...prev];
+    });
   }, []);
 
   const removeLook = useCallback((id: string) => {
@@ -193,10 +287,11 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
 
   const addProductToLook = useCallback((lookId: string, productId: string) => {
     dirtyRef.current = true;
+    const now = new Date().toISOString();
     setLooks((prev) =>
       prev.map((l) =>
         l.id === lookId && !l.productIds.includes(productId)
-          ? { ...l, productIds: [...l.productIds, productId] }
+          ? { ...l, productIds: [...l.productIds, productId], updatedAt: now }
           : l,
       ),
     );
@@ -204,16 +299,22 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
 
   const removeProductFromLook = useCallback((lookId: string, productId: string) => {
     dirtyRef.current = true;
+    const now = new Date().toISOString();
     setLooks((prev) =>
       prev.map((l) =>
-        l.id === lookId ? { ...l, productIds: l.productIds.filter((p) => p !== productId) } : l,
+        l.id === lookId
+          ? { ...l, productIds: l.productIds.filter((p) => p !== productId), updatedAt: now }
+          : l,
       ),
     );
   }, []);
 
   const setLookPhoto = useCallback((lookId: string, photoDataUrl: string | undefined) => {
     dirtyRef.current = true;
-    setLooks((prev) => prev.map((l) => (l.id === lookId ? { ...l, photoDataUrl } : l)));
+    const now = new Date().toISOString();
+    setLooks((prev) =>
+      prev.map((l) => (l.id === lookId ? { ...l, photoDataUrl, updatedAt: now } : l)),
+    );
   }, []);
 
   const shareLook = useCallback((lookId: string): string => {
@@ -253,6 +354,9 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
       createLook,
       renameLook,
       removeLook,
+      duplicateLook,
+      toggleFavorite,
+      updateLook,
       addProductToLook,
       removeProductFromLook,
       setLookPhoto,
@@ -267,6 +371,9 @@ export function MajeDressingProvider({ children }: { children: ReactNode }) {
       createLook,
       renameLook,
       removeLook,
+      duplicateLook,
+      toggleFavorite,
+      updateLook,
       addProductToLook,
       removeProductFromLook,
       setLookPhoto,
